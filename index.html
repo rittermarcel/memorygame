@@ -1,0 +1,78 @@
+<!DOCTYPE html> <!--Typ des Dokumentes-->
+<html>
+
+<head>
+  <title>Memory Game</title>
+  <link rel="stylesheet" type="text/css" href="style.css" /> <!-- bindet die CSS Datei ein -->
+  <script src="script.js" defer></script> <!-- bindet die JavaScript Datei ein -->
+</head>
+
+<body>
+  <div class="container"> <!-- Der "container" umschließt alle sichbaren inhalte der Website-->
+    <h1>Memory Game</h1>
+
+
+
+    <div id="popup">  <!-- Das Popup Fenster mit der Anleitung -->
+      <h1>Anleitung</h1> 
+      <p>Das <strong>Ziel</strong> des Spiels ist es, Paare von Karten <strong>aufzudecken</strong>, die das
+        <strong>gleiche Bild </strong>zeigen.
+      </p>
+      <p>Das Spiel besteht aus <strong>6, 8 oder 12 Kartenpaaren</strong>, die verdeckt auf dem Spielfeld liegen.</p>
+      <p>Um ein <strong>Thema</strong> zu wählen, einfach den Begriff in die suchzeile eingeben.</p>
+      <p>Du deckt zwei Karten auf, indem du auf sie klickt. Wenn die beiden Karten das gleiche Bild zeigen, bleiben sie
+        aufgedeckt. Wenn die beiden Karten unterschiedliche Bilder haben, werden sie wieder verdeckt.</p>
+      <p>Das Spiel <strong>Endet</strong>, wenn du <strong>alle Paare gefunden</strong> wurden.</p>
+      <p>Viel Spaß beim Spielen!</p>
+
+      <div id="close" onclick="closePopup()">Schließen</div> <!-- Der Button zum schließen des Popups  | onclick="closePopup()" ruft die Funktion closePopup() auf -->
+    </div>
+
+    <!-- Timer -->
+    <div id="timer"> 00:00:00 </div> 
+    <div id="controls"> <!-- Die Buttons zum starten und stoppen -->
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+    
+
+    <!-- Dropdown Menü -->
+    <label for="card-count">Anzahl der Kartenpaare:</label> <!-- Das Label für das Dropdown Menü -->
+    <select id="card-count"> <!-- Das Dropdown Menü zur Auswahl der Anzahl der Kartenpaare -->
+      <option value="6">6</option> 
+      <option value="8">8</option>
+      <option value="12">12</option> 
+    </select>
+
+    
+    <!-- Suchzeile -->
+    <form id="theme-search"> <!-- Die Suchzeile für die Auswahl des Themas -->
+      <a>Thema Bilder:</a>
+      <input type="text" id="theme"> 
+      <button type="button" id="buttonSearch">Suchen</button>
+    </form>
+   
+    <!-- <form>
+        <label for="fname">Thema Bilder:</label><br>
+        <input type="text" id="theme" name="theme"><br>
+        <button type="button" id="buttonSearch" value="Suchen"></button> 
+    </form> -->
+
+
+
+    <section id="memoryGame"></section> <!-- Das Spielfeld in dem die Karten liegen --> 
+    
+
+    <div id="highscore">
+      <h2>Highscore</h2>
+      <ul id="leaderboard"></ul> <!-- Die Liste der Highscores -->
+      <button id="show-leaderboard">neuer score</button> <!-- Der Button zum anzeigen des Highscores -->
+    </div>
+
+
+    <button id="reset" type="button">Reset</button> <!-- ein Button mit der id "reset" -->
+  
+  </div>
+</body>
+
+</html>
