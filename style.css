@@ -29,6 +29,7 @@ body {
 label {
   display: block; /* Ermöglicht, dass das Label über dem Dropdown-Menü angezeigt wird */
   margin-bottom: 10px; /* Abstand zum Dropdown-Menü */
+  margin-top: 50px;
   color: #333; /* Dunkelgrau für das Textlabel */
   font-weight: bold; /* Für einen kräftigeren Text */
 }
