@@ -1,6 +1,11 @@
 body {
-  background-color: rgb(244, 217, 127);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #E0F7FA; /* Ein sanftes Blau */
+  font-family: 'Arial', sans-serif; /* Ein einfacher und klarer Font */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Zentriert den Inhalt horizontal */
+  height: 100vh; /* Nimmt die gesamte Fensterhöhe ein */
 }
 
 
@@ -21,7 +26,41 @@ body {
   justify-content: center;
   cursor: pointer;
 }
+label {
+  display: block; /* Ermöglicht, dass das Label über dem Dropdown-Menü angezeigt wird */
+  margin-bottom: 10px; /* Abstand zum Dropdown-Menü */
+  color: #333; /* Dunkelgrau für das Textlabel */
+  font-weight: bold; /* Für einen kräftigeren Text */
+}
+select {
+  width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #B2DFDB; /* Ein sanftes Grünblau für den Rand */
+    border-radius: 5px; /* Abgerundete Ecken */
+    background-color: #E0F7FA; /* Ein sanftes Blau, wie in Ihrem vorherigen Beispiel */
+    background-image: linear-gradient(45deg, #E0F7FA, #B2DFDB); /* Ein sanfter Gradient von Blau zu Grünblau */
+    color: #333; /* Dunkelgrau für den Text im Dropdown-Menü */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none;
+}
+select:hover {
+  background-image: linear-gradient(45deg, #B2DFDB, #E0F7FA); /* Die Richtung des Gradients umkehren beim Darüberfahren */
+}
+select::-ms-expand {
+  display: none; /* Entfernt den Standardpfeil in IE/Edge */
+}
 
+select::after {
+  content: '\25BC'; /* Ein Unicode-Pfeil nach unten */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Verhindert, dass der Pfeil die Funktion des Dropdown-Menüs beeinflusst */
+}
 
 .card {
   margin: 10px;
@@ -90,26 +129,50 @@ body {
 
 #popup {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  border: 1px solid black;
-  padding: 20px;
-  width: 400px;
-  max-width: 90%;
-  text-align: justify;
-  text-align-last: center;
-  z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;  /* Damit das Popup immer im Vordergrund bleibt */
+    text-align: center;
+}
+h1 {
+  margin-top: 0;
+  color: #007BFF;  /* Ein kräftiges Blau für den Titel */
+  font-weight: bold;
+  font-size: 24px;
+  border-bottom: 2px solid #E0E0E0;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+p {
+  margin: 15px 0;
+  line-height: 1.6;
+  color: #333;  /* Ein dunkles Grau für den Text */
+}
+strong {
+  color: #007BFF;  /* Das gleiche kräftige Blau für hervorgehobene Textteile */
 }
 
 
 /* Stil für den Schließen-Button */
 #close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #FF4136;  /* Ein kräftiger Rotton für den Schließen-Button */
+  color: #ffffff;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#close:hover {
+  background-color: #c0312f;  /* Ein dunklerer Rotton für den Hover-Effekt */
 }
 
 /* Stil für die Absatz-Container */
@@ -131,9 +194,14 @@ body {
 
 /* Stil für die Timer */
 #timer {
-  font-size: 30px;
-  float: right;
-  padding: 20px;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 3px solid #B2DFDB; /* Ein sanftes Grünblau */
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
 
 #start {
@@ -147,27 +215,155 @@ body {
 #controls {
   margin-top: 10px;
   position: relative;
-  float: right;
+  margin-bottom:20px;
+    gap: 15px;
+
+}
+button {
+  font-size: 1em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4FC3F7; /* Ein kräftigeres Blau */
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-#controls button {
+button:hover {
+  background-color: #29B6F6; /* Ein dunkleres Blau für den Hover-Effekt */
+}
+
+button#stop {
+  background-color: #FF8A80; /* Ein sanfter Rotton */
+}
+
+button#stop:hover {
+  background-color: #FF5252; /* Ein dunklerer Rotton für den Hover-Effekt */
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* #controls button {
   font-size: 15px;
   margin: 5px;
   background-color: peru;
   color: white;
-}
+} */
 
 
 /* Stil für die Highscore-Liste */
 
 #highscore { 
   position: relative;
+  width: 300px; /* Oder eine andere passende Breite, je nach Ihrem Layout */
+    background-color: #E0F7FA; /* Ein sanftes Blau */
+    padding: 20px;
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Ein sanfter Schatten, um den Highscore-Bereich hervorzuheben */
+    margin: 20px auto; /* Zentriert den Highscore-Bereich horizontal und gibt vertikal Abstand */
+
+}
+#highscore h2 {
+  color: #333; /* Dunkelgrau */
+  border-bottom: 2px solid #B2DFDB; /* Ein sanftes Grünblau für die Unterstreichung */
+  padding-bottom: 10px;
+  margin-bottom: 15px;
   text-align: center;
-  cursor: pointer;
+}
+
+#leaderboard {
+  list-style-type: none; /* Entfernt Bulletpoints */
+  padding: 0; /* Entfernt Standard-Padding */
+  margin: 0 0 15px 0; /* Entfernt Standard-Margin und gibt Abstand zum Button */
+}
+
+#leaderboard li {
+  padding: 10px;
+  border-bottom: 1px solid #B2DFDB; /* Ein sanftes Grünblau für die Unterstreichung jedes Listeneintrags */
+  color: #555; /* Ein mittelgrauer Farbton für den Text */
 }
 
 #show-leaderboard {
-  position: relative;
+  display: block; /* Macht den Button block-level, so dass er die gesamte Breite des Containers einnimmt */
+  width: 100%;
+  padding: 10px;
+  background-color: #4FC3F7; /* Ein kräftigeres Blau für den Button */
+  color: #ffffff; /* Weiß für den Text im Button */
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+#show-leaderboard:hover {
+  background-color: #29B6F6; /* Ein dunkleres Blau für den Hover-Effekt */
+}
+#theme-search {
+  display: flex; /* Nutzen Sie Flexbox, um die Elemente in einer Zeile anzuordnen */
+  align-items: center; /* Vertikal zentrieren Sie die Elemente */
+  padding: 10px;
+  border: 1px solid #E0E0E0; /* Ein sanftes Grau für den Rand */
+  border-radius: 5px; /* Abgerundete Ecken */
+  background-color: #E0F7FA; /* Ein sanftes Blau, um es von Ihrem vorherigen Design zu übernehmen */
+  max-width: 400px;
+  margin: 0 auto; /* Das Formular zentrieren */
+}
+a {
+  margin-right: 10px; /* Abstand zwischen dem Text und dem Input-Feld */
+  font-weight: bold;
+  color: #333; /* Dunkelgrau für den Text */
+}
+
+input[type="text"] {
+  flex-grow: 1; /* Erlaubt dem Eingabefeld, den verfügbaren Raum auszufüllen */
+  padding: 8px;
+  border: 1px solid #B2DFDB; /* Ein sanftes Grünblau für den Rand */
+  border-radius: 5px;
+  margin-right: 10px; /* Abstand zwischen dem Eingabefeld und dem Button */
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #4FC3F7; /* Ein kräftigeres Blau für den Fokus-Rand */
+  box-shadow: 0px 0px 5px rgba(77, 195, 247, 0.5); /* Ein sanfter Schatten, wenn das Input-Feld fokussiert ist */
+}
+
+#buttonSearch {
+  padding: 10px 15px;
+  background-color: #4FC3F7; /* Ein kräftigeres Blau für den Button */
+  color: #ffffff; /* Weiß für den Text im Button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#buttonSearch:hover {
+  background-color: #29B6F6; /* Ein dunkleres Blau für den Hover-Effekt */
+}
+#memoryGame {
+  max-width: 1200px; /* Oder eine Breite Ihrer Wahl */
+  margin: 30px auto; /* Zentriert das Spielfeld horizontal und gibt vertikal Abstand */
+  padding: 20px;
+  background-color: #ffffff; /* Weißer Hintergrund für das Spielfeld */
+  border-radius: 10px; /* Abgerundete Ecken für das Spielfeld */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Ein sanfter Schatten, um das Spielfeld hervorzuheben und ihm Tiefe zu verleihen */
+  display: flex; /* Flexbox für eine bessere Handhabung von Kartenlayouts */
+  flex-wrap: wrap; /* Erlaubt es, Karten in mehreren Zeilen anzuzeigen */
+}
+.card {
+  width: 100px; /* oder die gewünschte Größe */
+  height: 150px; 
+  margin: 10px;
+  background-color: #E0F7FA; /* Ein sanftes Blau für die Rückseite der Karte */
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Ein sanfter Schatten für jede Karte */
 }
